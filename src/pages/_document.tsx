@@ -1,5 +1,5 @@
 import * as React from "react";
-import Document, { Html, Head } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import createEmotionServer from "@emotion/server/create-instance";
@@ -45,7 +45,10 @@ export default class MyDocument extends Document {
           <meta name="author" content="" />
         </Head>
 
-        <body></body>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
       </Html>
     );
   }
