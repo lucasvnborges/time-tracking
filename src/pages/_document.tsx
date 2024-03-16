@@ -45,7 +45,7 @@ export default class MyDocument extends Document {
           <meta name="author" content="" />
         </Head>
 
-        <body>
+        <body style={{ margin: 0 }}>
           <Main />
           <NextScript />
         </body>
