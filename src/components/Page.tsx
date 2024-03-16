@@ -10,7 +10,7 @@ import Head from "next/head";
 import { Box } from "@mui/material";
 
 interface PageProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
+  children?: ReactNode;
   title?: string;
   meta?: ReactNode;
 }
