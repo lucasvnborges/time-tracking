@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
+import counterReducer from './slices/counter'
 
 const createNoopStorage = () => ({
   getItem() {
@@ -25,6 +26,8 @@ const rootPersistConfig = {
   whitelist: [],
 };
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  counter: counterReducer
+});
 
 export { rootPersistConfig, rootReducer };
