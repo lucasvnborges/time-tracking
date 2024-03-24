@@ -1,45 +1,17 @@
 // @mui
-import { styled } from "@mui/material/styles";
 import { Box, Button, IconButton, Input } from "@mui/material";
+import { SearchbarStyle, TimeInput } from "./styles";
 // components
 import Iconify from "src/components/Iconify";
 // redux
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "src/redux/slices/counter";
 
-const APPBAR_MOBILE = 64;
-const APPBAR_DESKTOP = 92;
-
-const SearchbarStyle = styled("div")(({ theme }) => ({
-  display: "flex",
-  height: APPBAR_MOBILE,
-  backgroundColor: "#ffff",
-  borderBottom: "#f1f1f1 solid 1px",
-  [theme.breakpoints.up("md")]: {
-    height: APPBAR_DESKTOP,
-  },
-}));
-
-const TimeInput = styled(Input)(({ theme }) => ({
-  ":hover": {
-    backgroundColor: "#f1f0f2",
-  },
-  "&.MuiInput-root": {
-    width: "90px",
-    borderRadius: 6,
-    padding: "0 4px",
-    fontWeight: theme.typography.fontWeightBold,
-  },
-  "& input": {
-    padding: 4,
-    textAlign: "center",
-  },
-}));
-
-export default function Searchbar() {
-  const counterValue = useSelector((state) => state.counter.value);
-
+export default function Header() {
+  // hooks
   const dispatch = useDispatch();
+  // state
+  const counterValue = useSelector((state) => state.counter.value);
 
   const handleFocus = (event: { target: { select: () => void } }) => {
     event.target.select();
@@ -135,14 +107,13 @@ export default function Searchbar() {
             aria-label="delete"
             onClick={() => dispatch(decrement())}
             sx={{ backgroundColor: "#2C1338", margin: 0.5 }}
-            
           >
             <Iconify
               icon="line-md:play-filled"
               sx={{ color: "#fff", width: 8, height: 8 }}
             />
           </IconButton>
-            <span>{counterValue}</span>
+          <span>{counterValue}</span>
           <IconButton
             size="small"
             aria-label="delete"
